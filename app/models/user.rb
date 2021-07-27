@@ -40,8 +40,8 @@ class User < ApplicationRecord
 
     def area_attributes=(area)
         self.area = Area.find_or_create_by(
-            city: area[:city].capitalize(), 
-            state: area[:state].capitalize(),
-            zip_code: area[:zip_code] )
+                    city: area[:city].upcase(), 
+                    state: area[:state].upcase(),
+                    zip_code: area[:zip_code] )
     end 
 end
