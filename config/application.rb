@@ -20,6 +20,7 @@ module OasisDisabilityCareBackend
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.api_only = false
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -32,7 +33,8 @@ module OasisDisabilityCareBackend
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
-    # config.middleware.use ActionDispatch::Cookies    
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, key: "_disability_services_rails_app", expire_after: 30.days  
     # config.middleware.use ActionDispatch::Session::CookieStore
     # config.api_only = false
   end

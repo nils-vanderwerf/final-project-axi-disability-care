@@ -3,6 +3,9 @@
 
   Rails.application.routes.draw do
 
+  resources :participants
+  resources :carers
+  resources :bookings
     post "api/v1/login", to: "api/v1/sessions#create"
     delete "api/v1/logout", to: "api/v1/sessions#logout"
     get 'api/v1/get_current_user' => 'api/v1/sessions#get_current_user'

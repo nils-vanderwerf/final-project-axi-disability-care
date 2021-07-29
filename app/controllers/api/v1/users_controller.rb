@@ -44,12 +44,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    user = User.create(user_params)
+    user = User.new(user_params)
 
     if user.valid?
         user.save
 
-        session[:user_id] = user.id
         render json: {
           status: :created,
           user: user
@@ -61,7 +60,9 @@ class Api::V1::UsersController < ApplicationController
 
   private 
   def user_params
-    params.require(:user).permit(:role_id, :email, :first_name, :last_name, :bio, :age, :gender,  :hourly_rate, :hours_of_work, :first_aid_training, :carer_number, :has_vehicle, :disability, :ndis, :ndis_number, :password, :password_confirmation, category_ids:[], area_attributes: {})
+    params.require(:user).permit(:role_id, :email, :first_name, :last_name, :bio, :age, :gender,  
+    :hourly_rate, :hours_of_work, :first_aid_training, :carer_number, :has_vehicle, :disability, 
+    :ndis, :ndis_number, :password, :password_confirmation, category_ids:[], area_attributes: {})
   end
 end
 
