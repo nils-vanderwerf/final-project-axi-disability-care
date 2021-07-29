@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
-    has_one :carer, class_name: 'User', -> { where role: 'carer' }
-    has_one :participant, class_name: "User",  -> {where role: 'participant'}
+    has_one :carer, class_name: 'User' -> { where role: 'carer' }
+    has_one :participant, class_name: "User", -> {where role: 'participant'}
     # belongs_to :participant,
     #     primary_key: :id,
     #     foreign_key: :participant_id,

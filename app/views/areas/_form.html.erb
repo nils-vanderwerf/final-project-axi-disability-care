@@ -1,10 +1,10 @@
-<%= form_with(model: area) do |form| %>
-  <% if area.errors.any? %>
+<%= form_with(model: address) do |form| %>
+  <% if address.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(area.errors.count, "error") %> prohibited this area from being saved:</h2>
+      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
 
       <ul>
-        <% area.errors.each do |error| %>
+        <% address.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

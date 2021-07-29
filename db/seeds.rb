@@ -1,8 +1,8 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
+
 # Examples:
-#
+
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
@@ -75,93 +75,90 @@
 #     first_aid_training: false,
 #     hourly_rate: 60
 # )
-# Category.create!(
-#     name: "Help Around House",
-#     description: "Cleaning, yard maintenance, and home-office duties."
-# )
+Category.create!(
+    name: "Help Around House",
+    description: "Cleaning, yard maintenance, and home-office duties."
+)
 
-# Category.create!(
-#     name: "Personal Care",
-#     description: "Showering, toileting and mealtime assistance at home or in the community."
-# )
+Category.create!(
+    name: "Personal Care",
+    description: "Showering, toileting and mealtime assistance at home or in the community."
+)
 
-# Category.create!(
-#     name: "Education and employment",
-#     description: "Coaching to help you achieve your goals at school, college or work."
-# )
+Category.create!(
+    name: "Education and employment",
+    description: "Coaching to help you achieve your goals at school, college or work."
+)
 
-# Category.create!(
-#     name: "In home care",
-#     description: "In home care."
-# )
+Category.create!(
+    name: "In home care",
+    description: "In home care."
+)
 
-# Category.create!(
-#     name: "Transport",
-#     description: " Help to get your chores done or travel from A to B."
-# )
+Category.create!(
+    name: "Transport",
+    description: " Help to get your chores done or travel from A to B."
+)
 
-# Category.create!(
-#     name: "Out and about",
-#     description: "Support to get out, take a class, exercise, volunteer or go to gatherings."
-# )
+Category.create!(
+    name: "Out and about",
+    description: "Support to get out, take a class, exercise, volunteer or go to gatherings."
+)
 
-# Category.create!(
-#     name: "Therapy",
-#     description: "Therapy may include: Occupational therapy,
-#         Hydrotherapy, Exercise physiology, Counselling"
-# )
+Category.create!(
+    name: "Therapy",
+    description: "Therapy may include: Occupational therapy,
+        Hydrotherapy, Exercise physiology, Counselling"
+)
 
 
-# Category.create!(
-#     name: "Specialised (Complex)",
-#     description: "May include but not limited to: Manual Handling (lifting, hoisting, transfers), Anaphylaxis. Allergies Epilepsy/Seizure Management. PEG/Enteral Feeding. Catheter Care. Medication Management. Mealtime Management. Swallow/Nutrition. Bowel Care. Diabetes Management. Positive Behaviour Support."
-# )
+Category.create!(
+    name: "Specialised (Complex)",
+    description: "May include but not limited to: Manual Handling (lifting, hoisting, transfers), Anaphylaxis. Allergies Epilepsy/Seizure Management. PEG/Enteral Feeding. Catheter Care. Medication Management. Mealtime Management. Swallow/Nutrition. Bowel Care. Diabetes Management. Positive Behaviour Support."
+)
 
-# Task.create!(
-#     name: 'Help around the home',
-#     description: 'Vacuuming, sweeping and mopping the floors, cleaning the bathroom and kitchen, changing the sheets on your bed, and dusting and wiping down surfaces.',
-#     task_date: '2021-08-24',
-#     task_start_time: '15:30',
-#     approved: false,
-#     # client_id: 1,
-#     # category_id: 1,
-#     completed: false
+Task.create!(
+    name: 'Help around the home',
+    description: 'Vacuuming, sweeping and mopping the floors, cleaning the bathroom and kitchen, changing the sheets on your bed, and dusting and wiping down surfaces.',
+    task_date: '2021-08-24',
+    task_start_time: '15:30',
+    approved: false,
+    # client_id: 1,
+    # category_id: 1,
+    completed: false
 
-# )
+)
 
-# Task.create!(
-#     name: 'Help around the home',
-#     description: "Looking for a friendly support worker to help me move next weekend or anytime between the  20th -24th of Feb (weekend ideally, but I don't have a place lined up yet!)",
-#     task_date: '2021-08-24',
-#     task_start_time: '10:00',
-#     approved: false,
-#     completed: false,
-# )
+Task.create!(
+    name: 'Help around the home',
+    description: "Looking for a friendly support worker to help me move next weekend or anytime between the  20th -24th of Feb (weekend ideally, but I don't have a place lined up yet!)",
+    task_date: '2021-08-24',
+    task_start_time: '10:00',
+    approved: false,
+    completed: false,
+)
 
-# Task.create!(
-#     name: 'Mowing Lawn',
-#     description: "Lawn is getting very long - I need someone to help me mow it",
-#     task_date: '2021-07-23',
-#     task_start_time: '11:00',
-#     # client_id: 2,
-#     # category_id: 4,
-#     approved: false,
-#     completed: false
-# )
+Task.create!(
+    name: 'Mowing Lawn',
+    description: "Lawn is getting very long - I need someone to help me mow it",
+    task_date: '2021-07-23',
+    task_start_time: '11:00',
+    # client_id: 2,
+    # category_id: 4,
+    approved: false,
+    completed: false
+)
 
-# Task.create!(
-#     name: 'Organization',
-#     description: "Help with study and organizing my things",
-#     task_date: '2021-07-18',
-#     task_start_time: '11:00',
-#     # # client_id: 2,
-#     # category_id: 3,
-#     approved: true,
-#     completed: false
-# )
-
-Role.create!(name: 'carer')
-Role.create!(name: 'participant')
+Task.create!(
+    name: 'Organization',
+    description: "Help with study and organizing my things",
+    task_date: '2021-07-18',
+    task_start_time: '11:00',
+    # # client_id: 2,
+    # category_id: 3,
+    approved: true,
+    completed: false
+)
 
 
 

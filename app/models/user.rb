@@ -1,6 +1,9 @@
 class User < ApplicationRecord
-    # password will be salted, wants a password and password_confirmation
-    has_secure_password 
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
 
     validates_presence_of :email
     validates_uniqueness_of :email, uniqueness: { case_sensitive: false }
@@ -26,8 +29,8 @@ class User < ApplicationRecord
     # through: :hired_tasks,
     # source: :user
 
-    # belongs_to :area
-    # Replace with custom area attributes method accepts_nested_attributes_for :area
+    # belongs_to :address
+    # Replace with custom address attributes method accepts_nested_attributes_for :address
 
     has_one_attached :avatar
 
@@ -36,10 +39,10 @@ class User < ApplicationRecord
     
     accepts_nested_attributes_for :categories
 
-    def area_attributes=(area)
-        self.area = Area.find_or_create_by(
-                    city: area[:city].upcase(), 
-                    state: area[:state].upcase(),
-                    zip_code: area[:zip_code] )
+    def add_attributes=(address)
+        self.address = Address.find_or_create_by(
+                    city: address[:city].upcase(), 
+                    state: address[:state].upcase(),
+                    zip_code: address[:zip_code] )
     end 
 end
