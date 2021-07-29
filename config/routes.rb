@@ -9,7 +9,7 @@
     post "api/v1/login", to: "api/v1/sessions#create"
     delete "api/v1/logout", to: "api/v1/sessions#logout"
     get 'api/v1/get_current_user' => 'api/v1/sessions#get_current_user'
-    post 'api/v1/registrations' => 'api/v1/users#create'
+    post 'api/v1/register' => 'api/v1/users#create'
     post 'api/v1/tasks/new' => 'api/v1/tasks#create'
   
     namespace :api do
