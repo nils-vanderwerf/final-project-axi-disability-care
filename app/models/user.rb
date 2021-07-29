@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-    validates_presence_of :email
-    validates_uniqueness_of :email, uniqueness: { case_sensitive: false }
+    validates :name, :email, presence: true
+    validates :email, uniqueness: true
 
     # has_many :tasks,
     # primary_key: :id,

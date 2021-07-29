@@ -1,4 +1,3 @@
-class Carer < ApplicationRecord
-    belongs_to :user
+class Carer < User
     has_many :tasks, through: :bookings
 end

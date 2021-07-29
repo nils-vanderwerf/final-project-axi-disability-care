@@ -1,4 +1,3 @@
-class Participant < ApplicationRecord
-    belongs_to :user
+class Participant < User
     has_many :tasks
 end
