@@ -5,6 +5,10 @@ class User < ApplicationRecord
     validates_presence_of :email
     validates_uniqueness_of :email, uniqueness: { case_sensitive: false }
 
+    belongs_to :roleable, polymorphic: true
+    belongs_to :carer 
+    belongs_to :participant
+
     # has_many :tasks,
     # primary_key: :id,
     # foreign_key: :participant_id,
@@ -26,20 +30,25 @@ class User < ApplicationRecord
     # through: :hired_tasks,
     # source: :user
 
-    # belongs_to :area
-    # Replace with custom area attributes method accepts_nested_attributes_for :area
-
-    has_one_attached :avatar
-
+    # Replace with custom address attributes method 
     has_many :user_categories
     has_many :categories, :through => :user_categories
-    
-    accepts_nested_attributes_for :categories
 
-    def area_attributes=(area)
-        self.area = Area.find_or_create_by(
-                    city: area[:city].upcase(), 
-                    state: area[:state].upcase(),
-                    zip_code: area[:zip_code] )
+    belongs_to :address
+    accepts_nested_attributes_for :categories
+    accepts_nested_attributes_for :address
+    
+    has_many :participants
+    has_one_attached :avatar
+
+
+    
+    # belongs_to :profileable, :polymorphic => true
+
+    def address_attributes=(address)
+        self.address = Address.find_or_create_by(
+                    city: Address[:city].upcase(), 
+                    state: Address[:state].upcase(),
+                    zip_code: Address[:zip_code] )
     end 
 end

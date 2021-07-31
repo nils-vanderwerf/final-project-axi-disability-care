@@ -1,4 +1,5 @@
 class Carer < ApplicationRecord
-    belongs_to :user
     has_many :tasks, through: :bookings
+    has_one :user, :as => :roleable, dependent: :destroy
+    accepts_nested_attributes_for :user
 end
