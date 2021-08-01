@@ -5,9 +5,14 @@ class User < ApplicationRecord
     validates_presence_of :email
     validates_uniqueness_of :email, uniqueness: { case_sensitive: false }
 
-    belongs_to :roleable, polymorphic: true
-    belongs_to :carer 
-    belongs_to :participant
+    self.inheritance_column = :role
+    enum role: [:Carer, :Participant]
+
+    # belongs_to :roleable, polymorphic: true
+    # belongs_to :carer 
+    # belongs_to :participant
+
+
 
     # has_many :tasks,
     # primary_key: :id,
@@ -36,7 +41,7 @@ class User < ApplicationRecord
 
     belongs_to :address
     accepts_nested_attributes_for :categories
-    accepts_nested_attributes_for :address
+    # accepts_nested_attributes_for :address
     
     has_many :participants
     has_one_attached :avatar
@@ -45,10 +50,15 @@ class User < ApplicationRecord
     
     # belongs_to :profileable, :polymorphic => true
 
+    after_initialize do
+        if self.new_record?
+          self.role ||= :standard
+        end
+
     def address_attributes=(address)
         self.address = Address.find_or_create_by(
-                    city: Address[:city].upcase(), 
-                    state: Address[:state].upcase(),
-                    zip_code: Address[:zip_code] )
+                    city: address[:city].upcase(), 
+                    state: address[:state].upcase(),
+                    zip_code: address[:zip_code] )
     end 
 end

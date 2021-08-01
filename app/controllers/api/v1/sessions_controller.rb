@@ -1,42 +1,38 @@
 class Api::V1::SessionsController < ApplicationController
-    def create
-        @user = User.find_by(username: session_params[:email])
-      
-        if @user && @user.authenticate(session_params[:password])
-          login!
-          render json: {
+  include CurrentUserConcern
+  skip_before_action :set_current_user, only: :create
+  def create
+    user = User
+            .find_by(email: params["user"]["email"])
+            .try(:authenticate, params["user"]["password"])
+    if user
+        session[:user_id] = user.id
+  
+        render json: {
+            status: :created,
             logged_in: true,
-            user: @user
-          }
-        else
-          render json: { 
-            status: 401,
-            errors: ['no such user, please try again']
-          }
-        end
+            user: user
+        }
+    else
+        render json: { status: 401 }
     end
-    def get_current_user?
-        if logged_in? && current_user
-          render json: {
-            logged_in: true,
-            user: current_user
-          }
-        else
-          render json: {
-            logged_in: false,
-            message: 'no such user'
-          }
-        end
-    end
-    def destroy
-          logout!
-          render json: {
-            status: 200,
-            logged_out: true
-          }
-    end
-    private
-    def session_params
-          params.require(:user).permit(:emaIl, :password)
-    end
-    end
+end
+def get_current_user
+  puts "Session ID on component did mount >> #{session[:id]}"
+  if @current_user
+    render json: {
+      logged_in: true,
+      user: @current_user
+    }
+  else
+    
+    render json: {
+      logged_in: false
+    }
+  end
+end
+def logout
+  reset_session
+  render json: { status: 200, logged_out: true}
+end
+end

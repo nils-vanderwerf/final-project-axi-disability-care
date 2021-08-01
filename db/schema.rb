@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_31_100737) do
+ActiveRecord::Schema.define(version: 2021_08_01_032031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 2021_07_31_100737) do
   end
 
   create_table "address", force: :cascade do |t|
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "addresses", force: :cascade do |t|
     t.string "city"
     t.string "state"
     t.string "zip_code"
@@ -112,24 +120,20 @@ ActiveRecord::Schema.define(version: 2021_07_31_100737) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
+    t.string "profile_picture"
     t.text "bio"
     t.integer "age"
     t.string "gender"
     t.integer "zip_code"
     t.string "available_hours"
+    t.integer "hourly_rate", default: 50
     t.bigint "address_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "profile_picture"
-    t.string "email", default: "", null: false
-    t.boolean "first_aid_training", default: false
-    t.bigint "roleable_id"
     t.string "password_digest"
-    t.string "roleable_type"
+    t.string "role"
+    t.string "email"
     t.index ["address_id"], name: "index_users_on_address_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["roleable_id"], name: "index_users_on_roleable_id"
-    t.index ["roleable_type"], name: "index_users_on_roleable_type"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

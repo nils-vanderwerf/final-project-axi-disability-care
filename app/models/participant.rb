@@ -1,5 +1,3 @@
-class Participant < ApplicationRecord
-    has_one :users, :as => :roleable, dependent: :destroy
+class Participant < User
     has_many :tasks
-    accepts_nested_attributes_for :user
 end

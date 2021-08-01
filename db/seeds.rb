@@ -75,47 +75,47 @@
 #     first_aid_training: false,
 #     hourly_rate: 60
 # )
-# Category.create!(
-#     name: "Help Around House",
-#     description: "Cleaning, yard maintenance, and home-office duties."
-# )
+Category.create!(
+    name: "Help Around House",
+    description: "Cleaning, yard maintenance, and home-office duties."
+)
 
-# Category.create!(
-#     name: "Personal Care",
-#     description: "Showering, toileting and mealtime assistance at home or in the community."
-# )
+Category.create!(
+    name: "Personal Care",
+    description: "Showering, toileting and mealtime assistance at home or in the community."
+)
 
-# Category.create!(
-#     name: "Education and employment",
-#     description: "Coaching to help you achieve your goals at school, college or work."
-# )
+Category.create!(
+    name: "Education and employment",
+    description: "Coaching to help you achieve your goals at school, college or work."
+)
 
-# Category.create!(
-#     name: "In home care",
-#     description: "In home care."
-# )
+Category.create!(
+    name: "In home care",
+    description: "In home care."
+)
 
-# Category.create!(
-#     name: "Transport",
-#     description: " Help to get your chores done or travel from A to B."
-# )
+Category.create!(
+    name: "Transport",
+    description: " Help to get your chores done or travel from A to B."
+)
 
-# Category.create!(
-#     name: "Out and about",
-#     description: "Support to get out, take a class, exercise, volunteer or go to gatherings."
-# )
+Category.create!(
+    name: "Out and about",
+    description: "Support to get out, take a class, exercise, volunteer or go to gatherings."
+)
 
-# Category.create!(
-#     name: "Therapy",
-#     description: "Therapy may include: Occupational therapy,
-#         Hydrotherapy, Exercise physiology, Counselling"
-# )
+Category.create!(
+    name: "Therapy",
+    description: "Therapy may include: Occupational therapy,
+        Hydrotherapy, Exercise physiology, Counselling"
+)
 
 
-# Category.create!(
-#     name: "Specialised (Complex)",
-#     description: "May include but not limited to: Manual Handling (lifting, hoisting, transfers), Anaphylaxis. Allergies Epilepsy/Seizure Management. PEG/Enteral Feeding. Catheter Care. Medication Management. Mealtime Management. Swallow/Nutrition. Bowel Care. Diabetes Management. Positive Behaviour Support."
-# )
+Category.create!(
+    name: "Specialised (Complex)",
+    description: "May include but not limited to: Manual Handling (lifting, hoisting, transfers), Anaphylaxis. Allergies Epilepsy/Seizure Management. PEG/Enteral Feeding. Catheter Care. Medication Management. Mealtime Management. Swallow/Nutrition. Bowel Care. Diabetes Management. Positive Behaviour Support."
+)
 
 # Task.create!(
 #     name: 'Help around the home',
@@ -160,8 +160,8 @@
 #     completed: false
 # )
 
-Role.create!(name: 'carer')
-Role.create!(name: 'participant')
+# Role.create!(name: 'carer')
+# Role.create!(name: 'participant')
 
 
 

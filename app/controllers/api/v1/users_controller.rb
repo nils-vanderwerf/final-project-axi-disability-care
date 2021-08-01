@@ -45,27 +45,17 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    
 
     if user.valid?
-      if role_id === 1
-        carer = Carer.create(carer_params)
-        user.role = carer
         user.save
-      elsif role_id === 2 
-        participant = Participant.create(participant_params)
-        user.role = participant
-        user.save
-      else
-        puts "User role not valid"
+
+        session[:user_id] = user.id
+        puts "Session ID after signup >> #{session[:id]}"
         render json: {
-          message: "User role not valid",
+          status: :created,
+          user: user
         }
-      end
-      
-      render json: {
-        status: :created,
-        user: user
-      }
       else
         render json: { status: 500 }
       end
@@ -73,9 +63,8 @@ class Api::V1::UsersController < ApplicationController
 
   private 
   def user_params
-  #   params.require(:user).permit(:roleable_id, :email, :first_name, :last_name, :bio, :age, :gender,  
-  #   :hours_of_work, :password, :password_confirmation, category_ids:[], address_attributes: {})
-  # end
+    params.require(:user).permit(:role, :email, :first_name, :last_name, :bio, :age, :gender, :available_hours, :password, :password_confirmation, category_ids:[], address_attributes: [:city, :state, :zip_code])
+  end
 
   # def participant_params
   #   params.require(:carer).permit(:hourly_rate, :first_aid_training, :has_vehicle, :carer_number, 
